@@ -2,9 +2,9 @@
 {
     public class UserViewModel
     {
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
-        public string DNI { get; set; } = string.Empty;
-
+        public long UserId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string DNI { get; set; }
     }
 }

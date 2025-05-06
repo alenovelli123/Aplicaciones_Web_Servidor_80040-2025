@@ -40,7 +40,9 @@ namespace WebAppClase08.Controllers
                 return BadRequest();
 
             _userRepository.AddUser(user);
-            return Ok("Usuario agregado correctamente.");
+
+            // Devuelve el usuario completo con el ID generado
+            return Ok(user);
         }
 
         [HttpPut("UpdateUser/{id}")]

@@ -12,6 +12,7 @@ namespace WebAppClase08.Repositories
                 .Where(u => !u.IsDeleted)
                 .Select(u => new UserViewModel
                 {
+                    UserId = u.UserId,
                     FirstName = u.FirstName,
                     LastName = u.LastName,
                     DNI = u.Dni
