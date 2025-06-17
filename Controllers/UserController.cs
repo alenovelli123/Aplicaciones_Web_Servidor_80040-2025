@@ -40,13 +40,11 @@ namespace WebAppClase08.Controllers
                 return BadRequest();
 
             _userRepository.AddUser(user);
-
-            // Devuelve el usuario completo con el ID generado
             return Ok(user);
         }
 
         [HttpPut("UpdateUser/{id}")]
-        public IActionResult UpdateUser(long id, [FromBody] User updatedUser)
+        public async Task<IActionResult> UpdateUser(long id, [FromBody] User updatedUser)
         {
             var user = _userRepository.GetUserById(id);
             if (user == null)
@@ -57,7 +55,8 @@ namespace WebAppClase08.Controllers
             user.Dni = updatedUser.Dni;
 
             _userRepository.UpdateUser(user);
-            return Ok("Usuario actualizado correctamente.");
+
+            return Ok(user); // ✅ Devuelve el objeto, no un string
         }
 
         [HttpDelete("DeleteUser/{id}")]

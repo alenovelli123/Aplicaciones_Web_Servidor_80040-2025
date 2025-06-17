@@ -1,23 +1,15 @@
 ﻿using WebAppClase08.EF;
 using WebAppClase08.Interfaces;
-using WebAppClase08.Models;
 
 namespace WebAppClase08.Repositories
 {
     public class UserRepository(MiDBContext _context) : IUserRepository
     {
-        public List<UserViewModel> GetAllUsers()
+        public List<User> GetAllUsers() // CAMBIADO: era List<UserViewModel>
         {
             return _context.Users
                 .Where(u => !u.IsDeleted)
-                .Select(u => new UserViewModel
-                {
-                    UserId = u.UserId,
-                    FirstName = u.FirstName,
-                    LastName = u.LastName,
-                    DNI = u.Dni
-                })
-                .ToList();
+                .ToList(); // YA DEVUELVE User directamente
         }
 
         public User GetUserById(long id)

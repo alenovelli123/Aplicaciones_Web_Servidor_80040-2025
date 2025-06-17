@@ -1,11 +1,10 @@
 ﻿using WebAppClase08.EF;
-using WebAppClase08.Models;
 
 namespace WebAppClase08.Interfaces
 {
     public interface IUserRepository
     {
-        List<UserViewModel> GetAllUsers();
+        List<User> GetAllUsers(); // CAMBIADO: era List<UserViewModel>
         User GetUserById(long id);
         void AddUser(User user);
         void UpdateUser(User user);
